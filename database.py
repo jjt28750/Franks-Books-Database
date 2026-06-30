@@ -5,6 +5,7 @@
 ## Imports
 import mysql.connector
 
+
 ## Connect to MySQL server and log in.  Access database for Frank's Books: bookDatabase
 mydb = mysql.connector.connect(
     host="localhost",
@@ -13,7 +14,3 @@ mydb = mysql.connector.connect(
     database="bookDatabase"
 )
 
-## Set variable for database cursor
-mycursor = mydb.cursor()
-
-mycursor
