@@ -38,7 +38,7 @@ mycursor.execute("CREATE TABLE author (authorID INT(9) AUTO_INCREMENT PRIMARY KE
 ## Create table for entity "genre"
 ## genreID: Genre ID, primary key
 ## genreName: Name of genre, cannot be empty
-mycursor.execue("CREATE TABLE genre (genreID INT(9) AUTO_INCREMENT PRIMARY KEY, genreName CHAR(25) NOT NULL)")
+mycursor.execute("CREATE TABLE genre (genreID INT(9) AUTO_INCREMENT PRIMARY KEY, genreName CHAR(25) NOT NULL)")
 
 ## Create table for entity "supplier"
 ## supplierID: Supplier ID, primary key
@@ -56,3 +56,22 @@ mycursor.execute("CREATE TABLE supplier (supplierID INT(9) AUTO_INCREMENT PRIMAR
 ## totalPrice: Total price of transaction, cannot be empty
 ## paymentType: Payment time for transaction, cannot be empty
 mycursor.execute("CREATE TABLE transaction (transactionID VARCHAR(9) PRIMARY KEY, time INT(5) NOT NULL, date INT(8) NOT NULL, totalPrice INT(7) NOT NULL, paymentType VARCHAR(20) NOT NULL)")
+
+
+## Function resetDatabase
+##
+## Delete all tables in database.  This is so when I run the code again for testing, the database is clear and 
+## the code to create tables is able to run again.
+def resetDatabase():
+    delBook = "DROP TABLE book"
+    delAuthor = "DROP TABLE author"
+    delGenre = "DROP TABLE genre"
+    delSupplier = "DROP TABLE supplier"
+    delTransaction = "DROP TABLE transaction"
+
+    mycursor.execute(delBook)
+    mycursor.execute(delAuthor)
+    mycursor.execute(delGenre)
+    mycursor.execute(delSupplier)
+    mycursor.execute(delTransaction)
+
